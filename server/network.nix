@@ -1,3 +1,9 @@
+let
+  teal = import (builtins.fetchGit {
+    url = "git@github.com:tealverse/teal.git";
+    ref = "main";
+  });
+in
 {
   network.description = "Web server";
 
@@ -10,7 +16,7 @@
       services.httpd.virtualHosts = {
         "nix.teal.ooo" = {
           listen = [{ port = 80; }];
-          documentRoot = "${pkgs.valgrind.doc}/share/doc/valgrind/html";
+          documentRoot = teal.entries;
         };
       };
 

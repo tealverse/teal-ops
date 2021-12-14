@@ -23,4 +23,7 @@ jobs:
       #     extraPullNames: iohk
 
       - name: Run Checks
-        run: make ci
+        run: nix-env -i nixops
+
+      - name: tmp
+        run: nix-env --help
