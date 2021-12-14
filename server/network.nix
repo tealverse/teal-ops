@@ -1,6 +1,6 @@
 let
   teal = import (builtins.fetchGit {
-    url = "git@github.com:tealverse/teal.git";
+    url = "ssh://git@github.com/tealverse/teal.git";
     ref = "main";
     rev = "25d7baad24e4c87c7157ce4acf0b81a1e6f5d827";
   });
@@ -40,6 +40,7 @@ in
       networking.firewall.allowedTCPPorts = [ 80 22 ];
 
       deployment.targetHost = "nix.teal.ooo";
+      deployment.provisionSSHKey = false;
     };
 }
 

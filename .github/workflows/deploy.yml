@@ -8,12 +8,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
 
+      - uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.PRIVATE_KEY_TEAL_NIX }}
+
+      - run: ssh -o "StrictHostKeyChecking no" root@nix.teal.ooo whoami
+
       - name: Install Nix
         uses: cachix/install-nix-action@v16
         with:
           extra_nix_config: |
             substituters        = https://hydra.iohk.io https://iohk.cachix.org https://cache.nixos.org/
             trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ= iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
+
+
 
       # - name: Setup Nix Binary Caches
       #   uses: cachix/cachix-action@v10
@@ -22,11 +30,11 @@ jobs:
       #     authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       #     extraPullNames: iohk
 
-      - name: Set Nix channel (better pin in the future)
-        run: nix-channel --add https://nixos.org/channels/nixos-21.05 nixpkgs
-
-      - name: Install nixops
-        run: nix-env -i nixops
-
-      - name: tmp
-        run: nix-env --help
+      - name: Run deployment in nix-shell
+        run: |
+          nix-shell \
+            -I "nixpkgs=https://github.com/NixOS/nixpkgs/archive/3b422991781220853035dbe353ba8b7cb279b6b3.tar.gz" \
+            -p nixopsUnstable \
+            --run "make deploy-dry-run"
+        env:
+          NIX_PATH: "nixpkgs=https://github.com/NixOS/nixpkgs/archive/3b422991781220853035dbe353ba8b7cb279b6b3.tar.gz"
