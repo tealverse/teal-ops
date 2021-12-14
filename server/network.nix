@@ -2,6 +2,7 @@ let
   teal = import (builtins.fetchGit {
     url = "git@github.com:tealverse/teal.git";
     ref = "main";
+    rev = "25d7baad24e4c87c7157ce4acf0b81a1e6f5d827";
   });
 in
 {

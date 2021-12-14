@@ -23,7 +23,7 @@ jobs:
       #     extraPullNames: iohk
 
       - name: Set Nix channel (better pin in the future)
-        run: nix-channel add https://nixos.org/channels/nixos-21.05 nixpkgs
+        run: nix-channel --add https://nixos.org/channels/nixos-21.05 nixpkgs
 
       - name: Install nixops
         run: nix-env -i nixops
