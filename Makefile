@@ -12,12 +12,12 @@ deploy:
 	nix-shell -p nixops \
 	--run "make deploy-prepare; nixops deploy -d teal-build"
 
-# deploy-dry-activate:
-# 	NIX_PATH=$(NIX_PATH) \
-# 	nix-shell -p nixops \
-# 	--run "make deploy-prepare; nixops deploy --dry-activate -d teal"
+deploy-dry-activate:
+	NIX_PATH=$(NIX_PATH) \
+	nix-shell -p nixops \
+	--run "make deploy-prepare; nixops deploy --dry-activate -d teal-build"
 
-# deploy-dry-run:
-# 	NIX_PATH=$(NIX_PATH) \
-# 	nix-shell -p nixops \
-# 	--run "make deploy-prepare; nixops deploy --dry-run -d teal"
+deploy-dry-run:
+	NIX_PATH=$(NIX_PATH) \
+	nix-shell -p nixops \
+	--run "make deploy-prepare; nixops deploy --dry-run -d teal-build"
