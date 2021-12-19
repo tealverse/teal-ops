@@ -14,7 +14,13 @@
         };
       };
 
-      environment.systemPackages = [ pkgs.busybox ];
+      nix.sshServe.enable = true;
+      # nix.sshServe.write = true;
+      nix.sshServe.protocol = "ssh-ng";
+      nix.sshServe.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC2iqS0q4FXoN6ugI5CjCbBkg0v0ZmKiAsf4sofqZDe2uJIFD6aPoEunxaerhGQf63wGJMXD256XUSwpINssE5JqslrWC2ED28zEATQA5wKE41Qif5nLQzIJ8Gxb2BZ1MNieaD3Zwj56kqf5Bj4kJLrDMG4+sB+yTsQnhnt68G9wkPErsl7RhW3bMfnC1UetE5OpvWJ21k4UxtBsYM5WdAUOxVKmbPOrCYVtrC8tntyrXCxKLBOBLXIlyrWA2p09MEu4+3z0t7KwHdlygsXwhe+TMDq1Te+Xs5yAOqxBwbxzVid6n3IxUxP28bpE6wpNOiR3TBs3heGs7b6BeZGqe/hKXa8FaNUDvKUj5UQEoiJ4VgpsuL4XJLnLvvDSNWg6vSEAgOa7veXcOxa++sF/aoAAQfoy1b30RVVsrdTRvN5Qbp+jRGk+Yahr3saWYKSZ6wvFn0u5mMeRW5MWyLk/rqB/pFmVB4RLoWLSx0G7fELBGlmjpRcZJjTYq25/PSLSLE= teal-build" ];
+      # nix.trustedUsers = [ "nix-ssh" ];
+
+      environment.systemPackages = [ pkgs.busybox pkgs.git pkgs.nixops ];
 
       boot.cleanTmpDir = true;
       networking.hostName = "teal-build";
@@ -32,7 +38,7 @@
 
       networking.firewall.allowedTCPPorts = [ 80 22 ];
 
-      deployment.targetHost = "nix.teal.ooo";
+      deployment.targetHost = "65.21.251.123";
     };
 }
 
