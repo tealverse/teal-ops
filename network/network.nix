@@ -8,7 +8,7 @@
       services.httpd.adminAddr = "admin@teal.ooo";
 
       services.httpd.virtualHosts = {
-        "65.21.251.123" = {
+        "65.108.48.226" = {
           listen = [{ port = 80; }];
           documentRoot = "${pkgs.valgrind.doc}/share/doc/valgrind/html";
         };
@@ -28,7 +28,7 @@
       nix.sshServe.enable = true;
       # nix.sshServe.write = true;
       nix.sshServe.protocol = "ssh-ng";
-      nix.sshServe.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC2iqS0q4FXoN6ugI5CjCbBkg0v0ZmKiAsf4sofqZDe2uJIFD6aPoEunxaerhGQf63wGJMXD256XUSwpINssE5JqslrWC2ED28zEATQA5wKE41Qif5nLQzIJ8Gxb2BZ1MNieaD3Zwj56kqf5Bj4kJLrDMG4+sB+yTsQnhnt68G9wkPErsl7RhW3bMfnC1UetE5OpvWJ21k4UxtBsYM5WdAUOxVKmbPOrCYVtrC8tntyrXCxKLBOBLXIlyrWA2p09MEu4+3z0t7KwHdlygsXwhe+TMDq1Te+Xs5yAOqxBwbxzVid6n3IxUxP28bpE6wpNOiR3TBs3heGs7b6BeZGqe/hKXa8FaNUDvKUj5UQEoiJ4VgpsuL4XJLnLvvDSNWg6vSEAgOa7veXcOxa++sF/aoAAQfoy1b30RVVsrdTRvN5Qbp+jRGk+Yahr3saWYKSZ6wvFn0u5mMeRW5MWyLk/rqB/pFmVB4RLoWLSx0G7fELBGlmjpRcZJjTYq25/PSLSLE= teal-build" ];
+      nix.sshServe.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC68OuQnpJNHeTfLw6xOWWb60FIqklrN8oewxHEiwgBofLkHC7V3I9cuMcEqdYs5UGllXO3pc5AdDCTsBd/hCLbuhJ4NVA6HODfWZjPt9bwgPCU0cTMC03g9I6t1KmK84Nrv3QkQ6+358VBiMbRBgYPG0e9tyyA9N9UXh3OYlA81Bz/d6BJUD42NnljrlSbgDCmsLtG8Dye++f8YA+xQHvis2iUbh46m0Ku/jt4icI62gn6e6JN9+n2R3FjVF1FUpGF19iZQmbioTM5sMFMCEcADStBVc8+XgU3X5nWCfcFDxVTbo0A+ZtlroNJEVxxWJ12a3Lem2edkNtOBE+XvDTlENuReY4uhtxZQa+BNYpGjHwe7x7PMmyvHXDPczPm08d307qF8INuwLaJOtdidTIEfVBaqLa91mnkAmr3bqjqjioXEMKXQ611hu0x9Tp/S89PxttAcLyjwl9ReMsbyRU52n3TIFC00pWMKrnENQtwHTsLKGRR/yiS5RAlGt6P1OU=" ];
       # nix.trustedUsers = [ "nix-ssh" ];
 
       environment.systemPackages = [ pkgs.busybox pkgs.git pkgs.nixops ];
@@ -39,7 +39,7 @@
       services.openssh.enable = true;
 
       users.users.root.openssh.authorizedKeys.keys = [
-        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC2iqS0q4FXoN6ugI5CjCbBkg0v0ZmKiAsf4sofqZDe2uJIFD6aPoEunxaerhGQf63wGJMXD256XUSwpINssE5JqslrWC2ED28zEATQA5wKE41Qif5nLQzIJ8Gxb2BZ1MNieaD3Zwj56kqf5Bj4kJLrDMG4+sB+yTsQnhnt68G9wkPErsl7RhW3bMfnC1UetE5OpvWJ21k4UxtBsYM5WdAUOxVKmbPOrCYVtrC8tntyrXCxKLBOBLXIlyrWA2p09MEu4+3z0t7KwHdlygsXwhe+TMDq1Te+Xs5yAOqxBwbxzVid6n3IxUxP28bpE6wpNOiR3TBs3heGs7b6BeZGqe/hKXa8FaNUDvKUj5UQEoiJ4VgpsuL4XJLnLvvDSNWg6vSEAgOa7veXcOxa++sF/aoAAQfoy1b30RVVsrdTRvN5Qbp+jRGk+Yahr3saWYKSZ6wvFn0u5mMeRW5MWyLk/rqB/pFmVB4RLoWLSx0G7fELBGlmjpRcZJjTYq25/PSLSLE= teal-build"
+        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC68OuQnpJNHeTfLw6xOWWb60FIqklrN8oewxHEiwgBofLkHC7V3I9cuMcEqdYs5UGllXO3pc5AdDCTsBd/hCLbuhJ4NVA6HODfWZjPt9bwgPCU0cTMC03g9I6t1KmK84Nrv3QkQ6+358VBiMbRBgYPG0e9tyyA9N9UXh3OYlA81Bz/d6BJUD42NnljrlSbgDCmsLtG8Dye++f8YA+xQHvis2iUbh46m0Ku/jt4icI62gn6e6JN9+n2R3FjVF1FUpGF19iZQmbioTM5sMFMCEcADStBVc8+XgU3X5nWCfcFDxVTbo0A+ZtlroNJEVxxWJ12a3Lem2edkNtOBE+XvDTlENuReY4uhtxZQa+BNYpGjHwe7x7PMmyvHXDPczPm08d307qF8INuwLaJOtdidTIEfVBaqLa91mnkAmr3bqjqjioXEMKXQ611hu0x9Tp/S89PxttAcLyjwl9ReMsbyRU52n3TIFC00pWMKrnENQtwHTsLKGRR/yiS5RAlGt6P1OU="
       ];
 
       imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
@@ -49,7 +49,7 @@
 
       networking.firewall.allowedTCPPorts = [ 80 22 ];
 
-      deployment.targetHost = "65.21.251.123";
+      deployment.targetHost = "65.108.48.226";
     };
 }
 
