@@ -32,6 +32,9 @@
       # nix.trustedUsers = [ "nix-ssh" ];
 
       environment.systemPackages = [ pkgs.busybox pkgs.git pkgs.nixops ];
+      nix.envVars = {
+        TMPDIR = "/var/tmp";
+      };
 
       boot.cleanTmpDir = true;
       networking.hostName = "teal-build";
