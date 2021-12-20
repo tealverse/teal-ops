@@ -8,7 +8,7 @@
       services.httpd.adminAddr = "admin@teal.ooo";
 
       services.httpd.virtualHosts = {
-        "65.108.48.226" = {
+        "build.teal.no-day.org" = {
           listen = [{ port = 80; }];
           documentRoot = "${pkgs.valgrind.doc}/share/doc/valgrind/html";
         };
@@ -49,7 +49,7 @@
 
       networking.firewall.allowedTCPPorts = [ 80 22 ];
 
-      deployment.targetHost = "65.108.48.226";
+      deployment.targetHost = "build.teal.no-day.org";
     };
 }
 
