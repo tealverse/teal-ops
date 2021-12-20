@@ -13,7 +13,7 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVATE_KEY_TEAL_BUILD }}
 
       - name: SSH ping in order to register "known host"
-        run: ssh -o "StrictHostKeyChecking no" root@65.108.48.226 whoami
+        run: ssh -o "StrictHostKeyChecking no" root@build.teal.no-day.org whoami
 
       - name: Install Nix
         uses: cachix/install-nix-action@v16
