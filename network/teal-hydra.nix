@@ -44,7 +44,15 @@ in
   boot.initrd.kernelModules = [ "nvme" ];
   fileSystems."/" = { device = "/dev/sda1"; fsType = "ext4"; };
 
-  networking.firewall.allowedTCPPorts = [ 80 22 ];
+  networking.firewall.allowedTCPPorts = [ 80 22 3000 ];
 
   deployment.targetHost = "hydra.teal.no-day.org";
+
+  services.hydra = {
+    enable = true;
+    hydraURL = "http://localhost:3000";
+    notificationSender = "hydra@localhost";
+    buildMachinesFiles = [ ];
+    useSubstitutes = true;
+  };
 }
