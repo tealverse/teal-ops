@@ -1,5 +1,5 @@
 let
-  key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDEGcYkWwCqHR9WlVdp89LWgW+kzJkPtJ0DGC3JGHQZEtCeJX8CGHZr2ahHgGRFKiirbB1fUlEmqAEDFEuZiAS6Nbl7RPV9hbQoxWI1r3euI6ZDKWoF0dUljUVOEfGcuoN/eokQceBCdpFHINB4FmMKZ+qMv0tS5Cl7clm55NBP/BTDl+JBvM3SfkIdeZOttYTmSJnyeK/nlNQbDFcDTxUvkdRkLpLUj+kb4OwXQIjbKpDDZ/W1DIM9ha0JyknPWGDiI0/HSfxdIqJ9ZI+/rQlr4A52xCi0FAW/xcM/AzwsgE6t4vREMCCKXcSFcmvQBvT7rS3dZe16Cus3PDLDAM4nVVCvTyPfuR4UOTIOhbF+gXxOMonHWoqquQDU+A6fiJs7L4lXwSyGh9/36IWr7mELS8Vc0uSSAl6vGOwbC6wlVH/DouZs7VNCwktaEAzEmS/Fmjzg3geRASJkHqT4q7pqWRTg0adRTsecNppBOZpECXvqYfFWX13YeRSW+j5HAdk= teal-hydra";
+  key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDLGg8WZuO7r2pC5Ce50DO/Eua2vH2oqPUhFntML1sP8pZOEylViiwaJsWzx/u612Mfb+n+PPwVjRrHGe8nsneQM6kYsKKm0tmMhPQytVEXatgQBxWZ+tkCaxVQ7Y7zfdUqxiWycjS3itVGGLGRDhPBGiEbsnw4KZItCJPNbdoBZG5BpibKyykPk21/spBjlzQa4HjFeDmS4R5hbM9KpO7y4VBmcoV9IlRZzY6n13dQjczlosMzwAss69XnnWjo9dDiz7VWiUHHXrrzOZIK+I+jiU1LGJ6JaMAGMgILmE3NvieWKXvgVfFp6BS45dTwOJGzYG1Ggw1XMcjRgS5KOovk/Ruj32EH3WBS9u6fzNdh69Xi90GhqivpkNWWttXVJcuaxNa6XhFcGNieWY1RJfqeTYF/xsxP+R9IxZYYll5l12+uCX/DDjk8P3pzuNK95owre+y1hMjM5ikytOk4DvK+JiRWgKp4/mMvf1VgKAameWYDKa/7o5Jrj4NECLv53o8= teal-hydra";
 in
 { config, pkgs, modulesPath, ... }:
 {
@@ -7,7 +7,7 @@ in
   services.httpd.adminAddr = "admin@teal.ooo";
 
   services.httpd.virtualHosts = {
-    "hydra.teal.no-day.org" = {
+    "hydra.teal.ooo" = {
       listen = [{ port = 80; }];
       documentRoot = "${pkgs.valgrind.doc}/share/doc/valgrind/html";
     };
@@ -46,7 +46,7 @@ in
 
   networking.firewall.allowedTCPPorts = [ 80 22 3000 ];
 
-  deployment.targetHost = "hydra.teal.no-day.org";
+  deployment.targetHost = "hydra.teal.ooo";
 
   services.hydra = {
     enable = true;
