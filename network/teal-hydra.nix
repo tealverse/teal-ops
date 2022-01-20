@@ -3,15 +3,6 @@ let
 in
 { config, pkgs, modulesPath, ... }:
 {
-  services.httpd.enable = true;
-  services.httpd.adminAddr = "admin@teal.ooo";
-
-  services.httpd.virtualHosts = {
-    "hydra.teal.ooo" = {
-      listen = [{ port = 80; }];
-      documentRoot = "${pkgs.valgrind.doc}/share/doc/valgrind/html";
-    };
-  };
 
   nix.binaryCaches = [
     "https://hydra.iohk.io"
@@ -44,13 +35,13 @@ in
   boot.initrd.kernelModules = [ "nvme" ];
   fileSystems."/" = { device = "/dev/sda1"; fsType = "ext4"; };
 
-  networking.firewall.allowedTCPPorts = [ 80 22 3000 ];
+  networking.firewall.allowedTCPPorts = [ 80 22 ];
 
   deployment.targetHost = "hydra.teal.ooo";
 
   services.hydra = {
     enable = true;
-    hydraURL = "http://localhost:3000";
+    hydraURL = "http://localhost";
     notificationSender = "hydra@localhost";
     buildMachinesFiles = [ ];
     useSubstitutes = true;
