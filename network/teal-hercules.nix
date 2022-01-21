@@ -58,6 +58,6 @@ in
   services.hercules-ci-agent.enable = true;
   services.hercules-ci-agent.concurrentTasks = 4; # Number of jobs to run
 
-  deployment.keys."cluster-join-token.key".text = builtins.readEnv "CLUSTER_JOIN_TOKEN";
+  deployment.keys."cluster-join-token.key".text = builtins.getEnv "CLUSTER_JOIN_TOKEN";
   deployment.keys."binary-caches.json" = "{}";
 }
