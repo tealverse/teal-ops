@@ -8,16 +8,13 @@ deploy-prepare:
 	nixops create ./network/network.nix -d teal-build
 
 deploy:
-	NIX_PATH=$(NIX_PATH) \
-	nix-shell -p nixops \
-	--run "make deploy-prepare; nixops deploy -d teal-build"
+	make deploy-prepare;
+	nixops deploy -d teal-build;
 
-deploy-dry-activate:
-	NIX_PATH=$(NIX_PATH) \
-	nix-shell -p nixops \
-	--run "make deploy-prepare; nixops deploy --dry-activate -d teal-build"
+# deploy-dry-activate:
+# 	NIX_PATH=$(NIX_PATH) \
+# 	make deploy-prepare; nixops deploy --dry-activate -d teal-build
 
-deploy-dry-run:
-	NIX_PATH=$(NIX_PATH) \
-	nix-shell -p nixops \
-	--run "make deploy-prepare; nixops deploy --dry-run -d teal-build"
+deploy-dry:
+	make deploy-prepare;
+	nixops deploy --build-only -d teal-build;

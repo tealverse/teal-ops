@@ -29,7 +29,7 @@ jobs:
 
       - name: Deploy Dry Activate
         if: ${{ github.ref != 'refs/heads/main' }}
-        run: make deploy-dry-activate
+        run: make deploy-dry
 
       - name: Deploy
         # if: ${{ github.ref == 'refs/heads/main' }}
