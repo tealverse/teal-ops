@@ -9,6 +9,7 @@ deploy-prepare:
 
 deploy:
 	make deploy-prepare;
+	NIX_PATH=$(NIX_PATH) \
 	nixops deploy -d teal-build;
 
 # deploy-dry-activate:
@@ -17,4 +18,5 @@ deploy:
 
 deploy-dry:
 	make deploy-prepare;
+	NIX_PATH=$(NIX_PATH) \
 	nixops deploy --build-only -d teal-build;
