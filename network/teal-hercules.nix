@@ -26,11 +26,11 @@ in
     "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
   ];
 
-  # nix.sshServe.enable = true;
+  nix.sshServe.enable = true;
   # # nix.sshServe.write = true;
-  # nix.sshServe.protocol = "ssh-ng";
-  # nix.sshServe.keys = [ key ];
-  # # nix.trustedUsers = [ "nix-ssh" ];
+  nix.sshServe.protocol = "ssh-ng";
+  nix.sshServe.keys = [ key ];
+  nix.trustedUsers = [ "nix-ssh" ];
 
   # nix = {
   #   package = pkgs.nixUnstable; # or versioned attributes like nix_2_4
