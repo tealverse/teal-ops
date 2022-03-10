@@ -41,6 +41,7 @@ in
 
   # environment.systemPackages = [ pkgs.busybox ];
 
+  boot.tmpOnTmpfs = false;
   boot.cleanTmpDir = true;
   networking.hostName = "teal-hercules";
 
