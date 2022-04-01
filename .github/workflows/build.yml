@@ -28,5 +28,5 @@ jobs:
         run: nix develop --command make deploy-dry
 
       - name: Deploy
-        # if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ github.ref == 'refs/heads/main' }}
         run: nix develop --command make deploy
